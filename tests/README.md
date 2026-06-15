@@ -83,7 +83,6 @@ The test code takes into account the hardware specifics of both RTLS systems:
 ```
 
 
-```bash
 git add tests/
 git commit -m "test: add comprehensive pytest suite with record/replay data"
 git push origin main
