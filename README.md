@@ -1,10 +1,8 @@
 
 
-# RTLS Data Fusion Middleware (Master's Thesis)
+RTLS Data Fusion Middleware - Master's Thesis of Grzegorz
 
-This repository contains the testing suite and documentation for my Master's thesis project. The main goal was to build a backend server in FastAPI that takes real-time location data from two completely different UWB (Ultra-Wideband) systems—**Pozyx** (MQTT) and **Ubisense** (UDP)—and fuses them together into one unified map.
-
-
+This repository contains the testing suite and documentation for my Master's thesis project. The main goal was to build a backend server in FastAPI that takes clouse to real-time location data from two completely different UWB (Ultra-Wideband) systems—**Pozyx** (MQTT) and **Ubisense** (UDP) — and fuses them together into one unified map.
 
 ## System Architecture
 
@@ -58,7 +56,7 @@ graph LR
 
 ## Hardware Setup
 
-Since this wasn't just a purely software project, I had to physically install, wire PoE, and calibrate all the hardware in the lab.
+Since this wasn't just a purely software project, I had to physically install, wire PoE and Routers, and calibrate all the hardware in the lab.
 ### 1. The Anchors
 I used Ubisense and Pozyx. I even had to make a custom wooden mount for Ubisense to fit the ceiling grid properly.
 
@@ -76,15 +74,15 @@ To test if the fusion algorithm actually works, I mounted both tags to a rigid p
 
 ---
 
-## 🖥️ Live Dashboard
+## Live Dashboard
 
 Here is a screenshot of the system running. The table shows Pozyx and Ubisense readings, and the `g002` row is my algorithm calculating the fused position in real-time (showing a 'Handover' happening at 44% quality).
 
 <img src="photo/Screenshot%20from%202026-04-27%2005-35-06.png" width="100%" alt="Live Dashboard" />
 
----
 
-## 🧪 Testing with PyTest
+
+## Testing with PyTest
 
 To make sure I don't break the fusion math while tweaking the code, I wrote a test suite. It uses **real production data dumps** (saved hex and JSON logs from the network) instead of fake numbers.
 
@@ -96,7 +94,7 @@ pytest -v
 ![PyTest Results](photo/test_screen.png)
 ---
 
-## Academic Plagiarism Note (JSA)
+## Academic Plagiarism Note 
 
 *Note for recruiters:* Because Polish universities use the JSA (Jednolity System Antyplagiatowy) to scan theses, I had to temporarily remove the core `.py` backend files from this public repo so I don't accidentally plagiarize my own work.
 
@@ -104,7 +102,7 @@ This public mirror includes the architecture, tests, and hardware setup. I am mo
 
 ## Software Architecture & Dashboards
 
-The project is split into a Python backend (FastAPI) and a vanilla HTML/JS frontend. I wanted a lightweight way to process the high-frequency UWB data and immediately stream it to the browser via WebSockets without heavy framework overhead.
+The project is split into a Python backend by FastAPI and a vanilla HTML/JS frontend. I wanted a lightweight way to process the high-frequency UWB data and immediately stream it to the browser via WebSockets without heavy framework overhead.
 
 ### 1. Backend Core Files
 * **`main.py`**: The FastAPI application entry point. It hosts the web server and manages the live WebSocket (`/ws`) broadcasts.
