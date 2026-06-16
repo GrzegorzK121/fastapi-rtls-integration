@@ -118,8 +118,7 @@ The frontend consists of several dashboards to monitor the raw hardware streams 
 * **`terminals.html`**: A dual-pane raw data monitor to verify that the backend is actively receiving and parsing the UDP and MQTT packets.
 
 <p align="center">
-  <img src="photo/index.png" width="90%" alt="Main Map Dashboard" />
-  <br><br>
+  
   <img src="photo/terminal.png" width="90%" alt="Raw Terminal Streams" />
 </p>
 
