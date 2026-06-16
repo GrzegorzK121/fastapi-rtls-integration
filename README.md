@@ -59,32 +59,38 @@ graph LR
 ## Hardware Setup
 
 Since this wasn't just a purely software project, I had to physically install, wire PoE, and calibrate all the hardware in the lab.
-
 ### 1. The Anchors
-
 I used Ubisense and Pozyx. I even had to make a custom wooden mount for Ubisense to fit the ceiling grid properly.
 
-### 2. Ground-Truth Tags
+<p align="center">
+  <img src="photo/ubisense.jpeg" width="40%" alt="Ubisense Anchor" />
+  <img src="photo/pozyx.jpeg" width="40%" alt="Pozyx Anchor" />
+</p>
 
+### 2. Ground-Truth Tags
 To test if the fusion algorithm actually works, I mounted both tags to a rigid piece of wood. This way, they follow the exact same path, giving me a perfect baseline for testing the accuracy of the software.
 
+<p align="center">
+  <img src="photo/tags.JPEG" width="50%" alt="Dual Tags" />
+</p>
 
 ---
 
-## Live Dashboard
+## 🖥️ Live Dashboard
 
 Here is a screenshot of the system running. The table shows Pozyx and Ubisense readings, and the `g002` row is my algorithm calculating the fused position in real-time (showing a 'Handover' happening at 44% quality).
 
+<img src="photo/Screenshot%20from%202026-04-27%2005-35-06.png" width="100%" alt="Live Dashboard" />
+
 ---
 
-## Testing with PyTest
+## 🧪 Testing with PyTest
 
 To make sure I don't break the fusion math while tweaking the code, I wrote a test suite. It uses **real production data dumps** (saved hex and JSON logs from the network) instead of fake numbers.
 
 ```bash
 # Running the tests locally
 pytest -v
-
 
 ```
 ![PyTest Results](photo/test_screen.png)
